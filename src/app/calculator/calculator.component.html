@@ -1,0 +1,65 @@
+<!-- // Title: Assignment 9.2 Capstone
+// Author: Professor Krasso
+// Date: Dec 16 2022
+// Modified: Detres
+//Week-8 exercises/videos
+//https://www.youtube.com/watch?v=hAaoPOx_oIw
+//https://openlibrary.org/
+//https://www.npmjs.com/package/bootstrap-icons
+//https://angular.io/api/router/RouterLink -->
+
+<mat-card>
+  <mat-card-content>
+    <div fxLayout="row wrap">
+      <!-- Loan Information Form Inputs -->
+      <div fxFlex>
+        <mat-card class="mat-elevation-z0">
+          <mat-card-title></mat-card-title>
+          <mat-card-content class="align-center">
+
+            <form fxLayout="column" class="loan-form" [formGroup]="loanForm">
+
+              <mat-form-field fxFlex appearance="fill">
+                <mat-label>Loan Amount</mat-label>
+                <input type="text" name="loanAmount" matInput formControlName="loanAmount" />
+              </mat-form-field>
+
+              <mat-form-field fxFlex appearance="fill">
+                <mat-label>Interest Rate</mat-label>
+                <input type="text" placeholder="ex: 4.5" name="interestRate" matInput formControlName="interestRate" />
+              </mat-form-field>
+
+              <mat-form-field fxFlex appearance="fill">
+                <mat-label>Number of Years</mat-label>
+                <input type="text" name="numOfYears" matInput formControlName="numOfYears" />
+              </mat-form-field>
+
+              <!-- Submit button -->
+              <button mat-raised-button style="background-color:#e78f0a" (click)="calculateLoan()">Submit</button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Payments for the month and interest rates -->
+      <div fxFlex class="results">
+        <mat-card class="mat-elevation-z0">
+          <mat-card-title></mat-card-title>
+          <mat-card-content class="align-center">
+
+
+            <app-payments [monthlyPayment]="monthlyPayment"></app-payments>
+
+            <app-interest [interest]="interest"></app-interest>
+
+            <button mat-button (click)="clearEntries()" class="clear-button">Clear</button>
+
+
+          </mat-card-content>
+
+        </mat-card>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>
